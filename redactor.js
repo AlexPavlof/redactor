@@ -2021,7 +2021,6 @@
 					// replace special characters in links
 					html = html.replace(/<a href="(.*?[^>]?)®(.*?[^>]?)">/gi, '<a href="$1&reg$2">');
 
-					if (this.opts.replaceDivs && !this.opts.linebreaks) html = this.clean.replaceDivs(html);
 					if (this.opts.linebreaks)  html = this.clean.replaceParagraphsToBr(html);
 
 					// save form tag
@@ -2048,9 +2047,6 @@
 					// remove font tag
 					html = html.replace(/<font(.*?)>/gi, '');
 					html = html.replace(/<\/font>/gi, '');
-
-					// tidy html
-					html = this.tidy.load(html);
 
 					// paragraphize
 					if (this.opts.paragraphize) html = this.paragraphize.load(html);
